@@ -36,7 +36,9 @@ class Scenario(BaseScenario):
             agent.state.c = np.zeros(world.dim_c)
         for i, landmark in enumerate(world.landmarks):
             landmark.state.p_pos = np.random.uniform(-1,+1, world.dim_p)
+            print(landmark.state.p_pos)
             landmark.state.p_vel = np.zeros(world.dim_p)
+            print(landmark.state.p_vel)
 
     def reward(self, agent, world):
         dist2 = np.sum(np.square(agent.state.p_pos - world.landmarks[0].state.p_pos))

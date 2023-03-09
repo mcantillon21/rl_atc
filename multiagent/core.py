@@ -71,7 +71,7 @@ class Agent(Entity):
         self.c_noise = None
         # control range
         self.u_range = 1.0
-        # state
+                            # state
         self.state = AgentState()
         # action
         self.action = Action()

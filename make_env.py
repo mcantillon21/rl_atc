@@ -35,6 +35,9 @@ def make_env(scenario_name, benchmark=False):
     # load scenario from script
     scenario = scenarios.load(scenario_name + ".py").Scenario()
     # create world
+    
+    #inputs = [('UA91', 'SFO', 'SEA', 2.35, 14.30), ('AA478', 'LHR', 'JFK', 7.85, 19.30)]
+    #world = scenario.make_world(inputs)
     world = scenario.make_world()
     # create multiagent environment
     if benchmark:        
@@ -42,3 +45,4 @@ def make_env(scenario_name, benchmark=False):
     else:
         env = MultiAgentEnv(world, scenario.reset_world, scenario.reward, scenario.observation)
     return env
+

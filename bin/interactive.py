@@ -16,6 +16,8 @@ if __name__ == '__main__':
     # load scenario from script
     scenario = scenarios.load(args.scenario).Scenario()
     # create world
+    #inputs = [('UA91', 'SFO', 'SEA', 2.35, 14.30), ('AA478', 'LHR', 'JFK', 7.85, 19.30)]
+    #world = scenario.make_world(inputs)
     world = scenario.make_world()
     # create multiagent environment
     env = MultiAgentEnv(world, scenario.reset_world, scenario.reward, scenario.observation, info_callback=None, shared_viewer = False)

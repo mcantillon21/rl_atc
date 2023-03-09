@@ -57,6 +57,7 @@ class Scenario(BaseScenario):
 
     def reward(self, agent, world):
         # Agents are rewarded based on minimum agent distance to each landmark
+        print("REWARD")
         return self.adversary_reward(agent, world) if agent.adversary else self.agent_reward(agent, world)
 
     def agent_reward(self, agent, world):
@@ -67,6 +68,7 @@ class Scenario(BaseScenario):
         # keep the nearest good agents away from the goal
         agent_dist = [np.sqrt(np.sum(np.square(a.state.p_pos - a.goal_a.state.p_pos))) for a in world.agents if not a.adversary]
         pos_rew = min(agent_dist)
+        print("REWARD")
         #nearest_agent = world.good_agents[np.argmin(agent_dist)]
         #neg_rew = np.sqrt(np.sum(np.square(nearest_agent.state.p_pos - agent.state.p_pos)))
         neg_rew = np.sqrt(np.sum(np.square(agent.goal_a.state.p_pos - agent.state.p_pos)))
@@ -83,6 +85,7 @@ class Scenario(BaseScenario):
         for entity in world.landmarks:  # world.entities:
             entity_color.append(entity.color)
         # communication of all other agents
+        print("OBSERVATION")
         comm = []
         other_pos = []
         for other in world.agents:
